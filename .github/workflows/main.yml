@@ -1,16 +1,25 @@
+# Name of the workflow (shown in GitHub Actions tab)
 name: Simple CI Workflow
 
+# Event that triggers the workflow
 on:
   push:
+    # Workflow runs when code is pushed to the main branch
     branches: [ "main" ]
 
+# Jobs define what work will be done
 jobs:
+  # Job name: build
   build:
+    # The type of virtual machine used to run the job
     runs-on: ubuntu-latest
 
+    # Steps are executed in sequence
     steps:
+    # Step 1: Checkout the repository code
     - name: Checkout code
       uses: actions/checkout@v3
 
+    # Step 2: Run a simple command
     - name: Run simple check
       run: echo "CI workflow executed successfully"
